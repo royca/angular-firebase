@@ -1,0 +1,30 @@
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="employeeService.selectedEmployee.$key">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Full Name" required>
+      </div>
+  <div class="form-group">
+    <label>Position</label>
+    <input class="form-control" name="position" #position="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeHolder="Position of employee"> 
+  </div>
+  <div class="form-group">
+    <label>Office</label>
+    <input class="form-control" name="office" #office="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeHolder="Office"> 
+  </div>
+  <div class="form-group">
+      <label>Department</label>
+      <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1"></span>
+          <input class="form-control" name="dept" #salary="ngModel" [(ngModel)]="employeeService.selectedEmployee.dept" placeholder="Department" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-default" type="submit" [disabled]="!employeeForm.valid">
+        <i class="fa fa-floppy-o"></i>
+         Submit</button>
+      <button class="btn btn-default" type="button" (click)="resetForm(employeeForm)">
+        <i class="fa fa-repeat"></i>
+         Reset</button>
+    </div>
+</form>
